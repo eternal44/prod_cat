@@ -1,0 +1,18 @@
+<h1><%= @product.name %> info</h1>
+
+<table class="table well">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Pricing</th>
+    <th>Created At</th>
+	<th>Created At</th>
+  </tr>
+<tr>
+  <td><%= @product.name %></td>
+  <td><%= @product.description %></td>
+  <td>$<%= @product.pricing %></td>
+  <td><%= @product.created_at %></td>
+  <td><%= @product.updated_at %></td>
+</tr>
+</table>

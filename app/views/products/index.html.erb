@@ -1,0 +1,31 @@
+<h1>Listing products</h1>
+<div class="row">
+<div class="span9">
+<table class="table well">
+  <tr>
+    <th>Product</th>
+    <th>Description</th>
+    <th>Pricing</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td>$<%= product.pricing %></td>
+    <td><%= product.category_id %></td><!--convert into category name later -->
+
+    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+  </tr>
+<% end %>
+</table>
+</div><!--/.span4-->
+</div><!--/.row-->
+<br />
+<%= link_to 'New product', new_product_path %>

@@ -1,0 +1,35 @@
+<h1>Creating Products</h1>
+
+<!-- <form action="/products" class="new_product" id="new_product" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="text" id="product_name" name="product[name]" placeholder="Product Name" /><br />
+  <input type="text" id="product_description" name="product[description]" placeholder="Description" /><br />
+  <input type="text" id="product_pricing" name="product[pricing]" placeholder="Pricing" /><br />
+
+
+  <input type="submit" value="Submit" /><br /><!--routes to create.html.erb... why?-->
+<!-- </form>  -->
+
+<%= form_for @product do |f| %>
+  <p>
+   	<%= f.label :name %><br />
+   	<%= f.text_field :name %>
+  </p>
+    <p>
+   	<%= f.label :description %><br />
+   	<%= f.text_field :description %>
+  </p>
+  <p>
+   	<%= f.label :pricing %><br />
+   	<%= f.text_field :pricing %>
+  </p>
+  <p>
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </p>
+  <p>
+  	<%= f.submit "Update Product" %>
+  </p>
+<% end %>
+
+<a href="/products">Back</a>
