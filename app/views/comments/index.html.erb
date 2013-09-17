@@ -1,0 +1,17 @@
+<h1>Comment admin</h1>
+<% @products.each do |product| %>
+<div class="row">
+<div class="span9">
+<table class="table well">
+  <th><%= product.name %></th>
+  <tr>
+  <% product.comments.each do |comment| %>
+  <td> "<%= comment.content %>" -<%= comment.author %></td>
+  </tr>
+  <% end %>
+</table>
+</div>
+</div>
+<% end %>
+
+<%= link_to 'Product page', products_path %>

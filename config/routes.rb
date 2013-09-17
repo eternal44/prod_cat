@@ -12,9 +12,11 @@ ProdCat::Application.routes.draw do
   # get "products/update"
 
   # get "products/destroy"
+  resources :comments, :only =>[:index] #to pull all comments in "all comments" page
 
-  resources :products
-  resources :categorys
+  resources :products do
+    resources :comments, :only => [:new, :create, :destroy]
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

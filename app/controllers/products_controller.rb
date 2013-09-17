@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.includes(:comments)#loads all comments on one query. Eager loading
     @categorys = Category.all
+    @comments = Comment.all
   end
 
   def show
@@ -43,6 +44,7 @@ class ProductsController < ApplicationController
 
     redirect_to products_url 
   end
+
 end
 
 
